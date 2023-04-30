@@ -1,3 +1,5 @@
+//DDA ALGO OR INCREMENTAL ALGO
+
 #include<graphics.h> 
 #include<conio.h> 
 #include<stdio.h>
