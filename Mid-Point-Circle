@@ -1,0 +1,38 @@
+#include <iostream>
+#include <graphics.h>
+
+using namespace std;
+
+void drawCircle(int xc, int yc, int r) {
+    int x = 0, y = r;
+    int d = 1 - r;
+    while (x <= y) {
+        putpixel(xc + x, yc + y, BLUE);
+        putpixel(xc + y, yc + x, RED);
+        putpixel(xc - x, yc + y, WHITE);
+        putpixel(xc - y, yc + x, YELLOW);
+        putpixel(xc + x, yc - y, YELLOW);
+        putpixel(xc + y, yc - x, BLUE);
+        putpixel(xc - x, yc - y, RED);
+        putpixel(xc - y, yc - x, WHITE);
+        
+        if (d < 0) {
+            d += 2 * x + 3;
+        } else {
+            y--;
+            d += 2 * (x - y) + 5;
+        }
+        x++;
+    }
+}
+
+int main() {
+    int gd = DETECT, gm;
+    initgraph(&gd, &gm, "");
+    int x,y,r;
+    cin>>x>>y>>r;
+    drawCircle(x,y,r);
+    getch();
+    closegraph();
+    return 0;
+}
